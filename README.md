@@ -58,3 +58,8 @@ This project is licensed under the GNU General Public License v3.0. See [LICENSE
   <br>
   <sub>扫码加入 PandaAI 社群，交流 QUANTSKILLS 技能、Agent 工作流与量化研究实践。</sub>
 </div>
+
+
+## qsh-form 表单声明（可选增强）
+
+SKILL.md 中的 ` ```json qsh-form ` 围栏块声明该技能在 quantskillhub 运行页的定制表单（任务占位、快捷参数、提示组装模板）。本模板自带自检 CI：推送时自动校验声明合法性；本地自检：`node scripts/validate-qsh-form.mjs SKILL.md`。无此块时技能页退化为通用主输入框，功能不受影响。

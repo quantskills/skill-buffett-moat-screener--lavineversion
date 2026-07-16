@@ -20,6 +20,33 @@ quantSkills:
   summary_en: One-line English summary (8-200 chars)
 ---
 
+<!-- 可选：qsh-form 表单声明——quantskillhub 会用它渲染该技能的定制运行表单；删除本块则退化为通用主输入框，功能不受影响 -->
+```json qsh-form
+{
+  "version": 1,
+  "task": {
+    "placeholder": "例如：分析指定标的并生成摘要",
+    "required": true
+  },
+  "fields": [
+    {
+      "key": "market",
+      "type": "select",
+      "label": "市场",
+      "options": [
+        { "value": "a_share", "label": "A 股" }
+      ]
+    },
+    {
+      "key": "trade_date",
+      "type": "date",
+      "label": "交易日期"
+    }
+  ],
+  "prompt_template": "请处理任务：{{task}}；市场：{{market}}；日期：{{trade_date}}。附件：{{#attachments}}"
+}
+```
+
 # My Skill Name
 
 Use this skill to <核心用途一句话>.
