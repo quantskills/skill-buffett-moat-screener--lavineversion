@@ -3,6 +3,9 @@ __pycache__/
 .DS_Store
 # Git 卫生:原始导出与大数据不入库
 *.parquet
+output/
+.pytest_cache/
+.coverage
 prices/
 real_runs/
 sources/

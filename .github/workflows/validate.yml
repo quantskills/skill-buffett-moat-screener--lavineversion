@@ -1,4 +1,4 @@
-name: Validate qsh-form
+name: Validate Skill
 
 on:
   push:
@@ -14,3 +14,10 @@ jobs:
           node-version: 20
       - name: 校验 qsh-form
         run: node scripts/validate-qsh-form.mjs SKILL.md
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install test dependencies
+        run: pip install -r requirements-dev.txt
+      - name: Run tests
+        run: pytest -q
