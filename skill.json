@@ -1,6 +1,6 @@
 {
   "name": "buffett-moat-screener-lavine-version",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "entrypoint": "SKILL.md",
   "runtime": "python>=3.11",
   "license": "GPL-3.0",

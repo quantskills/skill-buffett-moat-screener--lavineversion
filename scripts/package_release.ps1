@@ -40,6 +40,11 @@ Add-Type -AssemblyName System.IO.Compression
 Add-Type -AssemblyName System.IO.Compression.FileSystem
 $archive = [IO.Compression.ZipFile]::Open($outputFullPath, [IO.Compression.ZipArchiveMode]::Update)
 try {
+    $nestedRoot = "${archivePrefix}${archivePrefix}"
+    $nested = $archive.Entries | Where-Object { $_.FullName.StartsWith($nestedRoot) }
+    if ($nested) {
+        throw "nested duplicate project directory found in release package"
+    }
     $artifacts = @(
         @{ Source = $canonicalJson; Entry = "${archivePrefix}output/screen-20251231-all-sh-sz-v12.json" },
         @{ Source = $productionDb; Entry = "${archivePrefix}production/database.parquet" }

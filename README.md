@@ -9,10 +9,10 @@
 [English](README.en.md) · **简体中文**
 
 [![CI](https://github.com/lavine888/skill-buffett-moat-screener/actions/workflows/validate.yml/badge.svg)](https://github.com/lavine888/skill-buffett-moat-screener/actions/workflows/validate.yml)
-![Version](https://img.shields.io/badge/version-1.2.0-2563eb)
+![Version](https://img.shields.io/badge/version-2.0.0-2563eb)
 ![Python](https://img.shields.io/badge/python-3.11%2B-3776ab)
 ![Data](https://img.shields.io/badge/data-PandaData-e11d48)
-![Tests](https://img.shields.io/badge/tests-36%20passed-15803d)
+![Tests](https://img.shields.io/badge/tests-37%20passed-15803d)
 [![License](https://img.shields.io/badge/license-GPL--3.0-334155)](LICENSE)
 
 </div>
@@ -98,6 +98,11 @@ python -m pip install -r requirements.txt
 $env:PANDA_DATA_USERNAME = "your-account"
 $env:PANDA_DATA_PASSWORD = "your-password"
 ```
+
+两份依赖文件的用途：
+
+- `requirements.txt`：**运行时依赖**，运行筛选 CLI、规则引擎、PandaData 提供者与 JSON/Parquet 物化所需；
+- `requirements-dev.txt`：**开发与测试依赖**，在运行时依赖之外追加 `pytest`，仅本地开发、`pytest` 与 CI 校验使用。
 
 ### 2. 筛选指定股票
 
@@ -189,7 +194,7 @@ python -m pytest -q
 node scripts/validate-qsh-form.mjs SKILL.md
 ```
 
-当前包含 36 项测试，覆盖：
+当前包含 37 项测试，覆盖：
 
 - 阈值边界、十年连续性和银行分支；
 - 未来版本、同日冲突和 `if_adjusted`；
@@ -197,7 +202,8 @@ node scripts/validate-qsh-form.mjs SKILL.md
 - 行业有效期、股票池和价格日期；
 - 缓存 manifest、并发认证和 API 窗口；
 - JSON/Parquet 契约、生产 upsert 与防覆盖；
-- 年度诊断换手率、成本、缺失前瞻收益和最大回撤。
+- 年度诊断换手率、成本、缺失前瞻收益和最大回撤；
+- 端到端集成 smoke：build → JSON/Parquet 物化 → 双校验器。
 
 ## 项目结构
 

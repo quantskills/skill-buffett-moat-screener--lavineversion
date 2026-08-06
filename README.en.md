@@ -9,10 +9,10 @@ An auditable, point-in-time, fail-closed Buffett moat hard screener for Shanghai
 **English** · [简体中文](README.md)
 
 [![CI](https://github.com/lavine888/skill-buffett-moat-screener/actions/workflows/validate.yml/badge.svg)](https://github.com/lavine888/skill-buffett-moat-screener/actions/workflows/validate.yml)
-![Version](https://img.shields.io/badge/version-1.2.0-2563eb)
+![Version](https://img.shields.io/badge/version-2.0.0-2563eb)
 ![Python](https://img.shields.io/badge/python-3.11%2B-3776ab)
 ![Data](https://img.shields.io/badge/data-PandaData-e11d48)
-![Tests](https://img.shields.io/badge/tests-36%20passed-15803d)
+![Tests](https://img.shields.io/badge/tests-37%20passed-15803d)
 [![License](https://img.shields.io/badge/license-GPL--3.0-334155)](LICENSE)
 
 </div>
@@ -103,6 +103,11 @@ python scripts/build.py `
   --parquet-output output/sample.parquet
 ```
 
+Two dependency files are provided:
+
+- `requirements.txt`: **runtime dependencies** needed to run the screener CLI, the rule engine, the PandaData provider and the JSON/Parquet materialization;
+- `requirements-dev.txt`: **development/test dependencies** that add `pytest` on top of the runtime ones, used only for local development, `pytest` and CI validation.
+
 ## Full SH/SZ run
 
 ```powershell
@@ -128,7 +133,7 @@ python scripts/validate.py output/screen-20251231.json
 python scripts/validate.py production/database.parquet
 ```
 
-The 36 tests cover rule boundaries, point-in-time revisions, three-state semantics, provider contracts, cache manifests, concurrent authentication, production upserts, strict JSON/Parquet validation, and annual diagnostics.
+The 37 tests cover rule boundaries, point-in-time revisions, three-state semantics, provider contracts, cache manifests, concurrent authentication, production upserts, strict JSON/Parquet validation, annual diagnostics, and an end-to-end integration smoke.
 
 ## Validated snapshot
 

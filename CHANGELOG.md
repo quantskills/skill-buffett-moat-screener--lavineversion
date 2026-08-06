@@ -1,5 +1,12 @@
 # Changelog
 
+## 2.0.0 - 2026-08-06
+
+- Document the purpose of both dependency manifests in-file and in the READMEs.
+- Remove stale nested duplicate cache directories from the working tree and guard the release package against nested project directories.
+- Add an offline integration smoke test that runs build, JSON and Parquet materialization, and both strict validators.
+- Keep the rule and schema contract at `1.2.0`; no rule thresholds changed.
+
 ## 1.2.0 - 2026-08-02
 
 - Correct the one-year-due debt field to `bs_ncl_due_1y`; all-null debt evidence now fails closed.

@@ -69,14 +69,14 @@ skill-buffett-moat-screener/
 Set-Location D:\Codex-Workspace\PandaAI\skill-buffett-moat-screener-lavine-version
 
 powershell -ExecutionPolicy Bypass -File scripts/package_release.ps1 `
-  -OutputPath D:\ADownloads\skill-buffett-moat-screener-v1.2.0.zip
+  -OutputPath D:\ADownloads\skill-buffett-moat-screener-v2.0.0.zip
 ```
 
 录制完成后，把视频保存为 `D:\ADownloads\demo.mp4`，重新生成最终上传包：
 
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts/package_release.ps1 `
-  -OutputPath D:\ADownloads\skill-buffett-moat-screener-v1.2.0.zip `
+  -OutputPath D:\ADownloads\skill-buffett-moat-screener-v2.0.0.zip `
   -DemoPath D:\ADownloads\demo.mp4
 ```
 
@@ -178,7 +178,7 @@ python -c "import pandas as pd; f=pd.read_parquet('production/database.parquet')
 - 展示代码只定位关键函数，不逐行讲实现。
 - JSON 先折叠所有节点，再单独展开 `counts`、`selected_symbols` 和 `diagnostics`。
 - 终端命令提前放进剪贴板，避免录制中长时间输入。
-- 口播中的数字必须与 `1.2.0` 最终产物一致。
+- 口播中的数字必须与 `2.0.0` 最终产物一致。
 - 不讲参考包的软评分、美股或回测收益；那是另一套实现，不是我们的交付口径。
 - 不说“推荐买入”，统一说“硬筛选通过”“研究候选”或“规则结果”。
 - 如果口误，停两秒后从该句重说，后期直接剪掉错误段。
@@ -191,4 +191,4 @@ python -c "import pandas as pd; f=pd.read_parquet('production/database.parquet')
 4. 使用带 `-DemoPath` 的打包命令重新生成 ZIP。
 5. 检查 ZIP 根目录只有一个 `skill-buffett-moat-screener/`，不存在重复嵌套。
 6. 解压到临时目录，运行 `python -m pytest -q` 和两个 validator。
-7. 最后上传 `skill-buffett-moat-screener-v1.2.0.zip`。
+7. 最后上传 `skill-buffett-moat-screener-v2.0.0.zip`。
